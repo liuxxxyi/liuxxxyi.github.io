@@ -71,6 +71,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-LinkList" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/27/LinkList/" class="article-date">
+  <time class="dt-published" datetime="2021-08-27T14:22:24.000Z" itemprop="datePublished">2021-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/27/LinkList/">LinkList</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="严蔚敏LinkList"><a href="#严蔚敏LinkList" class="headerlink" title="严蔚敏LinkList"></a>严蔚敏LinkList</h1><hr>
+<h2 id="c语言"><a href="#c语言" class="headerlink" title="c语言"></a>c语言</h2><hr>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElemType,Status;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">InitList</span><span class="params">(LinkList *L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    L = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LinkList));</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">CreatList</span><span class="params">(LinkList *L,<span class="keyword">int</span> n,ElemType a[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        LinkList *p = <span class="literal">NULL</span>;</span><br><span class="line">        p = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LinkList));</span><br><span class="line">        p-&gt;next = L-&gt;next;        <span class="comment">//ERROR</span></span><br><span class="line">        p-&gt;data = a[i];</span><br><span class="line">        L-&gt;next = p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">Print</span><span class="params">(LinkList *L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LinkList *p = L-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,p-&gt;data);</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">10</span>] = &#123;<span class="number">1</span>,<span class="number">23</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">54</span>,<span class="number">65</span>,<span class="number">56</span>,<span class="number">34</span>,<span class="number">33</span>&#125;;</span><br><span class="line">    LinkList *L = <span class="literal">NULL</span>;</span><br><span class="line">   <span class="comment">// InitList(L);</span></span><br><span class="line">    L = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LinkList));</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    CreatList(L,<span class="number">10</span>,a);</span><br><span class="line">    Print(L);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对指针的理解还是不熟，InisList函数不太对，或者说对LinkList 指针L做为参数不太理解，<br>之前一直没有运行起来，后面翻之前的代码，将IninList函数没有，在main里面初始化头指<br>针，代码才跑起来。<br>之前也写过几遍，但是始终没有深入理解，尤其是指针一块，导致始终没有太大的进步。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="cksughpjc0000lkjm9gkabv4n" data-title="LinkList" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-严蔚敏SqList-md" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" class="article-date">
@@ -102,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" data-id="cksswhz7g0002rsjmfb96bgad" data-title="严蔚敏SqList.md" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" data-id="cksughpjj0003lkjm80c859t2" data-title="严蔚敏SqList.md" class="article-share-link">Share</a>
       
       
       
@@ -144,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/17/wodeboke-1/" data-id="cksswhz780000rsjmfpc2fxy1" data-title="wodeboke" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/17/wodeboke-1/" data-id="cksughpjg0001lkjmdb9d3026" data-title="wodeboke" class="article-share-link">Share</a>
       
       
       
@@ -195,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/17/hello-world/" data-id="cksswhz7e0001rsjmdfhjc6r5" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/17/hello-world/" data-id="cksughpji0002lkjmcz38bfwt" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -236,6 +278,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/08/27/LinkList/">LinkList</a>
+          </li>
         
           <li>
             <a href="/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/">严蔚敏SqList.md</a>
