@@ -102,12 +102,30 @@
 <hr>
 <p>今天又发现一个隐藏错误<u><em><strong>访问空指针</strong></em></u>  上面GetElem和DlelteList中 *e = p-&gt;data; 错误，<br>给空指针赋值，应该将p节点的data域地址赋值给指针e e = &amp;p-&gt;data;</p>
 <hr>
-<p>CodeBlocks运行成功。</p>
+<p>突然想通了InitList函数。<br>之前错误的写法</p>
+<pre><code class="c">int LinkList(LinkList L)
+&#123;
+    L = malloc(sizeof(LNode));
+    L-&gt;next = NULL;
+    return 0;
+&#125;
+错误在于，传参时只是传了L的值，因为要对L本身操作，所以要传L的地址。
+正确代码为
+```c
+int LinkList(LinkList *L)
+&#123;
+    L = malloc(sizeof(LNode));
+    L-&gt;next = NULL;
+    return 0;
+&#125;
+
+CodeBlocks运行成功。
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="ckswmgy7l0000aojm30klaf5l" data-title="LinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="cksylt4t80000z0jm2fod02c5" data-title="LinkList" class="article-share-link">Share</a>
       
       
       
@@ -150,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" data-id="ckswmgy7t0003aojm9et72p3z" data-title="严蔚敏SqList.md" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" data-id="cksylt4ts0003z0jm9w99fxex" data-title="严蔚敏SqList.md" class="article-share-link">Share</a>
       
       
       
@@ -192,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/17/wodeboke-1/" data-id="ckswmgy7q0001aojmhe997fik" data-title="wodeboke" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/17/wodeboke-1/" data-id="cksylt4tq0002z0jmdvbv1loe" data-title="wodeboke" class="article-share-link">Share</a>
       
       
       
@@ -243,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/17/hello-world/" data-id="ckswmgy7s0002aojm2g9v761a" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/17/hello-world/" data-id="cksylt4tm0001z0jmbp174gth" data-title="Hello World" class="article-share-link">Share</a>
       
       
       

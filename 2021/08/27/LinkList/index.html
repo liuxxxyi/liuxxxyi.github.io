@@ -14,7 +14,7 @@
 <meta property="og:description" content="严蔚敏LinkList c语言 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &lt;malloc.h&gt;#define">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-27T14:22:24.000Z">
-<meta property="article:modified_time" content="2021-08-29T02:56:40.177Z">
+<meta property="article:modified_time" content="2021-08-30T12:13:47.045Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -104,12 +104,30 @@
 <hr>
 <p>今天又发现一个隐藏错误<u><em><strong>访问空指针</strong></em></u>  上面GetElem和DlelteList中 *e = p-&gt;data; 错误，<br>给空指针赋值，应该将p节点的data域地址赋值给指针e e = &amp;p-&gt;data;</p>
 <hr>
-<p>CodeBlocks运行成功。</p>
+<p>突然想通了InitList函数。<br>之前错误的写法</p>
+<pre><code class="c">int LinkList(LinkList L)
+&#123;
+    L = malloc(sizeof(LNode));
+    L-&gt;next = NULL;
+    return 0;
+&#125;
+错误在于，传参时只是传了L的值，因为要对L本身操作，所以要传L的地址。
+正确代码为
+```c
+int LinkList(LinkList *L)
+&#123;
+    L = malloc(sizeof(LNode));
+    L-&gt;next = NULL;
+    return 0;
+&#125;
+
+CodeBlocks运行成功。
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="ckswmgy7l0000aojm30klaf5l" data-title="LinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="cksylt4t80000z0jm2fod02c5" data-title="LinkList" class="article-share-link">Share</a>
       
       
       
