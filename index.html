@@ -71,6 +71,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Squeue" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/04/Squeue/" class="article-date">
+  <time class="dt-published" datetime="2021-09-04T08:26:12.000Z" itemprop="datePublished">2021-09-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/04/Squeue/">Squeue</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="严蔚敏Squeue"><a href="#严蔚敏Squeue" class="headerlink" title="严蔚敏Squeue"></a>严蔚敏Squeue</h1><hr>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OVERFLOW -1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_INIT_SIZE 100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXADD 10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElemType,Status;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">queue</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElemType *top;</span><br><span class="line">    ElemType *rear;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">&#125;Squeue;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">因为是顺序表，在main中申请的结构类型，所以销毁时，不能free，销毁时只需将结构S里的top = NULL，rear = NULL，size = 0；</span></span><br><span class="line"><span class="comment">清空时需将S 中 rear = top，size = 0；</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="function">Status <span class="title">InitSqueue</span><span class="params">(Squeue *S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    (*S).top = <span class="built_in">malloc</span>(MAX_INIT_SIZE*<span class="keyword">sizeof</span>(ElemType));</span><br><span class="line">    <span class="keyword">if</span>(!(*S).top)</span><br><span class="line">        <span class="built_in">exit</span>(OVERFLOW);</span><br><span class="line">    S-&gt;rear = S-&gt;top;</span><br><span class="line">    (*S).size = MAX_INIT_SIZE;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DeSqueue</span><span class="params">(Squeue *S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!S)</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    S-&gt;top = <span class="literal">NULL</span>;</span><br><span class="line">    S-&gt;size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">ClearSqueue</span><span class="params">(Squeue *S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!S)</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">   <span class="comment">// free(S-&gt;top);       //</span></span><br><span class="line">    S-&gt;top =  S-&gt;rear;</span><br><span class="line">    S-&gt;size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">Push</span><span class="params">(Squeue *S,ElemType data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!S)</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    <span class="keyword">if</span>((<span class="keyword">int</span>)(S-&gt;rear - S-&gt;top) &gt;= MAX_INIT_SIZE)</span><br><span class="line">    &#123;</span><br><span class="line">        S-&gt;top = <span class="built_in">realloc</span>(S-&gt;top,(MAX_INIT_SIZE + MAXADD)*<span class="keyword">sizeof</span>(ElemType));</span><br><span class="line">        S-&gt;size += MAXADD;</span><br><span class="line">    &#125;</span><br><span class="line">    *(S-&gt;rear) = data;</span><br><span class="line">    S-&gt;rear++;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">Pop</span><span class="params">(Squeue *S,ElemType *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!S || !S-&gt;top) <span class="keyword">return</span> ERROR;</span><br><span class="line">    *e = *(S-&gt;top);</span><br><span class="line">    S-&gt;top++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Pop is : %d\n&quot;</span>,*e);</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetElem</span><span class="params">(Squeue S,ElemType *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!(S.top))</span><br><span class="line">    <span class="keyword">return</span> ERROR;</span><br><span class="line">  *e = *(S.top);</span><br><span class="line">  <span class="keyword">return</span> *e;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SqLen</span><span class="params">(Squeue S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!(S.top))</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    <span class="keyword">return</span> S.rear - S.top;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Squeue S;</span><br><span class="line">    ElemType e;</span><br><span class="line">    InitSqueue(&amp;S);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">102</span>; i++)</span><br><span class="line">        Push(&amp;S,i);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">90</span>; i++)</span><br><span class="line">        Pop(&amp;S,&amp;e);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,e);</span><br><span class="line">    <span class="comment">//DeSqueue(&amp;S);</span></span><br><span class="line">    <span class="comment">//ClearSqueue(&amp;S);</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,S.size);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;top is %d\n&quot;</span>,GetElem(S,&amp;e));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len is %d\n&quot;</span>,SqLen(S));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>codeblocks运行成功；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/04/Squeue/" data-id="ckt5iy25a0003ngjm439w2meo" data-title="Squeue" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-LinkStack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/09/04/LinkStack/" class="article-date">
@@ -138,7 +180,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/04/LinkStack/" data-id="ckt5is13m0003s8jmbuw23hnr" data-title="LinkStack" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/04/LinkStack/" data-id="ckt5iy25b0004ngjm4ha91hjx" data-title="LinkStack" class="article-share-link">Share</a>
       
       
       
@@ -178,7 +220,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/04/Stack/" data-id="ckt5is13m0004s8jm70he938e" data-title="Stack" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/04/Stack/" data-id="ckt5iy25d0007ngjm2orzaykt" data-title="Stack" class="article-share-link">Share</a>
       
       
       
@@ -221,7 +263,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/02/CriLinkList/" data-id="ckt5is13e0000s8jm8th5gcve" data-title="CriLinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/02/CriLinkList/" data-id="ckt5iy2540000ngjm1ufj12sp" data-title="CriLinkList" class="article-share-link">Share</a>
       
       
       
@@ -266,7 +308,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/02/DouLinkList/" data-id="ckt5is13j0001s8jm9oxh84ks" data-title="DouLinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/02/DouLinkList/" data-id="ckt5iy2590002ngjmgoa22cid" data-title="DouLinkList" class="article-share-link">Share</a>
       
       
       
@@ -319,7 +361,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="ckt5is13l0002s8jmbbgs5f85" data-title="LinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="ckt5iy2580001ngjmd4uugpo5" data-title="LinkList" class="article-share-link">Share</a>
       
       
       
@@ -362,7 +404,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" data-id="ckt5is13p0007s8jm9wbbgvrn" data-title="严蔚敏SqList.md" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" data-id="ckt5iy25e0008ngjm0ryrgb2s" data-title="严蔚敏SqList.md" class="article-share-link">Share</a>
       
       
       
@@ -404,7 +446,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/17/wodeboke-1/" data-id="ckt5is13o0006s8jm9hax31a1" data-title="wodeboke" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/17/wodeboke-1/" data-id="ckt5iy25b0005ngjm28pghy0u" data-title="wodeboke" class="article-share-link">Share</a>
       
       
       
@@ -455,7 +497,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/17/hello-world/" data-id="ckt5is13n0005s8jm6b1a8ztj" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/17/hello-world/" data-id="ckt5iy25c0006ngjmetl38nce" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -498,6 +540,10 @@ codeblocks运行成功；
       <ul>
         
           <li>
+            <a href="/2021/09/04/Squeue/">Squeue</a>
+          </li>
+        
+          <li>
             <a href="/2021/09/04/LinkStack/">LinkStack</a>
           </li>
         
@@ -511,10 +557,6 @@ codeblocks运行成功；
         
           <li>
             <a href="/2021/09/02/DouLinkList/">DouLinkList</a>
-          </li>
-        
-          <li>
-            <a href="/2021/08/27/LinkList/">LinkList</a>
           </li>
         
       </ul>
