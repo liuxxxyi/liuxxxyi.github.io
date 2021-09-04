@@ -71,6 +71,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-LinkStack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/04/LinkStack/" class="article-date">
+  <time class="dt-published" datetime="2021-09-04T08:16:49.000Z" itemprop="datePublished">2021-09-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/04/LinkStack/">LinkStack</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="严蔚敏LinkStack"><a href="#严蔚敏LinkStack" class="headerlink" title="严蔚敏LinkStack"></a>严蔚敏LinkStack</h1><hr>
+<p>#include &lt;stdio.h&gt;<br>#include &lt;stdlib.h&gt;<br>#define ERROR 0<br>#define OK 1<br>typedef int ElemType,Status;<br>typedef struct Node<br>{<br>    ElemType data;<br>    struct Node *next;<br>}Node;</p>
+<p>typedef struct LinkStack<br>{<br>    Node *top;<br>    int size;<br>}LinkStack,*LinkStackP;</p>
+<p>Status InitStack(LinkStackP *S) //给main中的指针s 分配一个LinkStack节点，即为LinkStack的结构；<br>{<br>    (*S) = malloc(sizeof(LinkStack));<br>    (*S)-&gt;top = NULL;<br>    (*S)-&gt;size = 0;<br>    return OK;<br>}</p>
+<p>Status DesLinkStack(LinkStackP *S)<br>{<br>    if(!S) return ERROR;<br>    free(*S);<br>    (*S) = NULL;<br>    return OK;<br>}</p>
+<p>Status ClearLinkStack(LinkStackP S)<br>{<br>    if(!S) return ERROR;<br>    S-&gt;top = NULL;<br>    S-&gt;size = 0;<br>    return OK;<br>}<br>Status Push(LinkStackP S,ElemType data)<br>{<br>    if(!S) return ERROR;<br>    Node *node = malloc(sizeof(Node));<br>    node-&gt;data = data;<br>    node-&gt;next = S-&gt;top;<br>    S-&gt;top = node;<br>    S-&gt;size++;<br>    return OK;<br>}</p>
+<p>Status Pop(LinkStackP S,ElemType *e)<br>{<br>    if(!S || !S-&gt;top) return ERROR;<br>    Node *node = S-&gt;top;<br>    *e = node-&gt;data;<br>    S-&gt;top = node-&gt;next;<br>    S-&gt;size–;<br>    free(node);<br>    node = NULL;<br>    printf(“pop is %d\n”,*e);<br>    return OK;<br>}</p>
+<p>int StackLen(LinkStackP S)<br>{<br>    if(!S) return ERROR;<br>    return S-&gt;size;<br>}</p>
+<p>int GetElem(LinkStackP S)<br>{<br>    if(S)<br>        return S-&gt;size;<br>    else<br>        return ERROR;<br>}</p>
+<p>int isEmpty(LinkStackP S)<br>{<br>    if(!S) return ERROR;<br>    else<br>    {<br>        if(S-&gt;size == 0)<br>            return 1;<br>        else<br>            return 0;<br>    }<br>}<br>int main()<br>{<br>    int e,len,topdata = 0;<br>    LinkStackP S = NULL;</p>
+<pre><code>InitStack(&amp;S);
+Push(S,1);
+Push(S,2);
+//ClearLinkStack(S);
+
+//DesLinkStack(&amp;S);
+printf(&quot;empty? : %d\n&quot;,isEmpty(S));
+len = StackLen(S);
+topdata = GetElem(S);
+printf(&quot;Stacklen is %d\n&quot;,len);
+printf(&quot;Getelem is %d\n&quot;,topdata);
+
+
+topdata = GetElem(S);
+printf(&quot;Getelem is %d\n&quot;,topdata);
+Pop(S,&amp;e);
+Pop(S,&amp;e);
+printf(&quot;empty? : %d\n&quot;,isEmpty(S));
+len = StackLen(S);
+ Pop(S,&amp;e);
+printf(&quot;StackLen is %d\n&quot;,len);
+
+printf(&quot;Hello world!\n&quot;);
+return 0;
+</code></pre>
+<p>}</p>
+<pre><code>---
+在写的时候现在知道该怎么处理，进一步理解指针及指针的指针及其操作，在写LinkStack时，发现有的函数在不进行错误判定时操作时，有时会因为空指针及野指针的原因导致程序存在隐含错误，所以这次在写的过程中基本上每一个函数都加了判错判断。
+---
+codeblocks运行成功；
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/04/LinkStack/" data-id="ckt5is13m0003s8jmbuw23hnr" data-title="LinkStack" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Stack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/09/04/Stack/" class="article-date">
@@ -99,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/04/Stack/" data-id="ckt5ifcg70004x0jmej3depcb" data-title="Stack" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/04/Stack/" data-id="ckt5is13m0004s8jm70he938e" data-title="Stack" class="article-share-link">Share</a>
       
       
       
@@ -142,7 +221,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/02/CriLinkList/" data-id="ckt5ifcfy0000x0jm14fve3e5" data-title="CriLinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/02/CriLinkList/" data-id="ckt5is13e0000s8jm8th5gcve" data-title="CriLinkList" class="article-share-link">Share</a>
       
       
       
@@ -187,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/02/DouLinkList/" data-id="ckt5ifcg60002x0jm5zjn66qk" data-title="DouLinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/02/DouLinkList/" data-id="ckt5is13j0001s8jm9oxh84ks" data-title="DouLinkList" class="article-share-link">Share</a>
       
       
       
@@ -240,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="ckt5ifcg40001x0jmcto3eprc" data-title="LinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="ckt5is13l0002s8jmbbgs5f85" data-title="LinkList" class="article-share-link">Share</a>
       
       
       
@@ -283,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" data-id="ckt5ifcg90006x0jmacnp1tf7" data-title="严蔚敏SqList.md" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" data-id="ckt5is13p0007s8jm9wbbgvrn" data-title="严蔚敏SqList.md" class="article-share-link">Share</a>
       
       
       
@@ -325,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/17/wodeboke-1/" data-id="ckt5ifcg90005x0jmfzy50z4e" data-title="wodeboke" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/17/wodeboke-1/" data-id="ckt5is13o0006s8jm9hax31a1" data-title="wodeboke" class="article-share-link">Share</a>
       
       
       
@@ -376,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/17/hello-world/" data-id="ckt5ifcg60003x0jm9rui41kx" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/17/hello-world/" data-id="ckt5is13n0005s8jm6b1a8ztj" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -419,6 +498,10 @@
       <ul>
         
           <li>
+            <a href="/2021/09/04/LinkStack/">LinkStack</a>
+          </li>
+        
+          <li>
             <a href="/2021/09/04/Stack/">Stack</a>
           </li>
         
@@ -432,10 +515,6 @@
         
           <li>
             <a href="/2021/08/27/LinkList/">LinkList</a>
-          </li>
-        
-          <li>
-            <a href="/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/">严蔚敏SqList.md</a>
           </li>
         
       </ul>

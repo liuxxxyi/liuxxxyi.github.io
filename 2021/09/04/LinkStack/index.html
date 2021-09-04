@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LinkStack | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="严蔚敏LinkStack #include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#define ERROR 0#define OK 1typedef int ElemType,Status;typedef struct Node{    ElemType data;    struct Node *next;}Node; typedef struct L">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LinkStack">
+<meta property="og:url" content="http://example.com/2021/09/04/LinkStack/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="严蔚敏LinkStack #include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#define ERROR 0#define OK 1typedef int ElemType,Status;typedef struct Node{    ElemType data;    struct Node *next;}Node; typedef struct L">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-04T08:16:49.000Z">
+<meta property="article:modified_time" content="2021-09-04T08:23:46.195Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-LinkStack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/04/LinkStack/" class="article-date">
+  <time class="dt-published" datetime="2021-09-04T08:16:49.000Z" itemprop="datePublished">2021-09-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      LinkStack
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="严蔚敏LinkStack"><a href="#严蔚敏LinkStack" class="headerlink" title="严蔚敏LinkStack"></a>严蔚敏LinkStack</h1><hr>
+<p>#include &lt;stdio.h&gt;<br>#include &lt;stdlib.h&gt;<br>#define ERROR 0<br>#define OK 1<br>typedef int ElemType,Status;<br>typedef struct Node<br>{<br>    ElemType data;<br>    struct Node *next;<br>}Node;</p>
+<p>typedef struct LinkStack<br>{<br>    Node *top;<br>    int size;<br>}LinkStack,*LinkStackP;</p>
+<p>Status InitStack(LinkStackP *S) //给main中的指针s 分配一个LinkStack节点，即为LinkStack的结构；<br>{<br>    (*S) = malloc(sizeof(LinkStack));<br>    (*S)-&gt;top = NULL;<br>    (*S)-&gt;size = 0;<br>    return OK;<br>}</p>
+<p>Status DesLinkStack(LinkStackP *S)<br>{<br>    if(!S) return ERROR;<br>    free(*S);<br>    (*S) = NULL;<br>    return OK;<br>}</p>
+<p>Status ClearLinkStack(LinkStackP S)<br>{<br>    if(!S) return ERROR;<br>    S-&gt;top = NULL;<br>    S-&gt;size = 0;<br>    return OK;<br>}<br>Status Push(LinkStackP S,ElemType data)<br>{<br>    if(!S) return ERROR;<br>    Node *node = malloc(sizeof(Node));<br>    node-&gt;data = data;<br>    node-&gt;next = S-&gt;top;<br>    S-&gt;top = node;<br>    S-&gt;size++;<br>    return OK;<br>}</p>
+<p>Status Pop(LinkStackP S,ElemType *e)<br>{<br>    if(!S || !S-&gt;top) return ERROR;<br>    Node *node = S-&gt;top;<br>    *e = node-&gt;data;<br>    S-&gt;top = node-&gt;next;<br>    S-&gt;size–;<br>    free(node);<br>    node = NULL;<br>    printf(“pop is %d\n”,*e);<br>    return OK;<br>}</p>
+<p>int StackLen(LinkStackP S)<br>{<br>    if(!S) return ERROR;<br>    return S-&gt;size;<br>}</p>
+<p>int GetElem(LinkStackP S)<br>{<br>    if(S)<br>        return S-&gt;size;<br>    else<br>        return ERROR;<br>}</p>
+<p>int isEmpty(LinkStackP S)<br>{<br>    if(!S) return ERROR;<br>    else<br>    {<br>        if(S-&gt;size == 0)<br>            return 1;<br>        else<br>            return 0;<br>    }<br>}<br>int main()<br>{<br>    int e,len,topdata = 0;<br>    LinkStackP S = NULL;</p>
+<pre><code>InitStack(&amp;S);
+Push(S,1);
+Push(S,2);
+//ClearLinkStack(S);
+
+//DesLinkStack(&amp;S);
+printf(&quot;empty? : %d\n&quot;,isEmpty(S));
+len = StackLen(S);
+topdata = GetElem(S);
+printf(&quot;Stacklen is %d\n&quot;,len);
+printf(&quot;Getelem is %d\n&quot;,topdata);
+
+
+topdata = GetElem(S);
+printf(&quot;Getelem is %d\n&quot;,topdata);
+Pop(S,&amp;e);
+Pop(S,&amp;e);
+printf(&quot;empty? : %d\n&quot;,isEmpty(S));
+len = StackLen(S);
+ Pop(S,&amp;e);
+printf(&quot;StackLen is %d\n&quot;,len);
+
+printf(&quot;Hello world!\n&quot;);
+return 0;
+</code></pre>
+<p>}</p>
+<pre><code>---
+在写的时候现在知道该怎么处理，进一步理解指针及指针的指针及其操作，在写LinkStack时，发现有的函数在不进行错误判定时操作时，有时会因为空指针及野指针的原因导致程序存在隐含错误，所以这次在写的过程中基本上每一个函数都加了判错判断。
+---
+codeblocks运行成功；
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/04/LinkStack/" data-id="ckt5is13m0003s8jmbuw23hnr" data-title="LinkStack" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/09/04/Stack/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Stack</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/09/04/LinkStack/">LinkStack</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/04/Stack/">Stack</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/02/CriLinkList/">CriLinkList</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/02/DouLinkList/">DouLinkList</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/27/LinkList/">LinkList</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
