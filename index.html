@@ -101,7 +101,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/04/Squeue/" data-id="ckt5iy25a0003ngjm439w2meo" data-title="Squeue" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/04/Squeue/" data-id="ckt5j1sh10004pkjm1t3g558c" data-title="Squeue" class="article-share-link">Share</a>
       
       
       
@@ -136,51 +136,14 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h1 id="严蔚敏LinkStack"><a href="#严蔚敏LinkStack" class="headerlink" title="严蔚敏LinkStack"></a>严蔚敏LinkStack</h1><hr>
-<p>#include &lt;stdio.h&gt;<br>#include &lt;stdlib.h&gt;<br>#define ERROR 0<br>#define OK 1<br>typedef int ElemType,Status;<br>typedef struct Node<br>{<br>    ElemType data;<br>    struct Node *next;<br>}Node;</p>
-<p>typedef struct LinkStack<br>{<br>    Node *top;<br>    int size;<br>}LinkStack,*LinkStackP;</p>
-<p>Status InitStack(LinkStackP *S) //给main中的指针s 分配一个LinkStack节点，即为LinkStack的结构；<br>{<br>    (*S) = malloc(sizeof(LinkStack));<br>    (*S)-&gt;top = NULL;<br>    (*S)-&gt;size = 0;<br>    return OK;<br>}</p>
-<p>Status DesLinkStack(LinkStackP *S)<br>{<br>    if(!S) return ERROR;<br>    free(*S);<br>    (*S) = NULL;<br>    return OK;<br>}</p>
-<p>Status ClearLinkStack(LinkStackP S)<br>{<br>    if(!S) return ERROR;<br>    S-&gt;top = NULL;<br>    S-&gt;size = 0;<br>    return OK;<br>}<br>Status Push(LinkStackP S,ElemType data)<br>{<br>    if(!S) return ERROR;<br>    Node *node = malloc(sizeof(Node));<br>    node-&gt;data = data;<br>    node-&gt;next = S-&gt;top;<br>    S-&gt;top = node;<br>    S-&gt;size++;<br>    return OK;<br>}</p>
-<p>Status Pop(LinkStackP S,ElemType *e)<br>{<br>    if(!S || !S-&gt;top) return ERROR;<br>    Node *node = S-&gt;top;<br>    *e = node-&gt;data;<br>    S-&gt;top = node-&gt;next;<br>    S-&gt;size–;<br>    free(node);<br>    node = NULL;<br>    printf(“pop is %d\n”,*e);<br>    return OK;<br>}</p>
-<p>int StackLen(LinkStackP S)<br>{<br>    if(!S) return ERROR;<br>    return S-&gt;size;<br>}</p>
-<p>int GetElem(LinkStackP S)<br>{<br>    if(S)<br>        return S-&gt;size;<br>    else<br>        return ERROR;<br>}</p>
-<p>int isEmpty(LinkStackP S)<br>{<br>    if(!S) return ERROR;<br>    else<br>    {<br>        if(S-&gt;size == 0)<br>            return 1;<br>        else<br>            return 0;<br>    }<br>}<br>int main()<br>{<br>    int e,len,topdata = 0;<br>    LinkStackP S = NULL;</p>
-<pre><code>InitStack(&amp;S);
-Push(S,1);
-Push(S,2);
-//ClearLinkStack(S);
-
-//DesLinkStack(&amp;S);
-printf(&quot;empty? : %d\n&quot;,isEmpty(S));
-len = StackLen(S);
-topdata = GetElem(S);
-printf(&quot;Stacklen is %d\n&quot;,len);
-printf(&quot;Getelem is %d\n&quot;,topdata);
-
-
-topdata = GetElem(S);
-printf(&quot;Getelem is %d\n&quot;,topdata);
-Pop(S,&amp;e);
-Pop(S,&amp;e);
-printf(&quot;empty? : %d\n&quot;,isEmpty(S));
-len = StackLen(S);
- Pop(S,&amp;e);
-printf(&quot;StackLen is %d\n&quot;,len);
-
-printf(&quot;Hello world!\n&quot;);
-return 0;
-</code></pre>
-<p>}</p>
-<pre><code>---
-在写的时候现在知道该怎么处理，进一步理解指针及指针的指针及其操作，在写LinkStack时，发现有的函数在不进行错误判定时操作时，有时会因为空指针及野指针的原因导致程序存在隐含错误，所以这次在写的过程中基本上每一个函数都加了判错判断。
----
-codeblocks运行成功；
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElemType,Status;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LinkStack</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    Node *top;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">&#125;LinkStack,*LinkStackP;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">InitStack</span><span class="params">(LinkStackP *S)</span> <span class="comment">//给main中的指针s 分配一个LinkStack节点，即为LinkStack的结构；</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    (*S) = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LinkStack));</span><br><span class="line">    (*S)-&gt;top = <span class="literal">NULL</span>;</span><br><span class="line">    (*S)-&gt;size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DesLinkStack</span><span class="params">(LinkStackP *S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!S) <span class="keyword">return</span> ERROR;</span><br><span class="line">    <span class="built_in">free</span>(*S);</span><br><span class="line">    (*S) = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">ClearLinkStack</span><span class="params">(LinkStackP S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!S) <span class="keyword">return</span> ERROR;</span><br><span class="line">    S-&gt;top = <span class="literal">NULL</span>;</span><br><span class="line">    S-&gt;size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Status <span class="title">Push</span><span class="params">(LinkStackP S,ElemType data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!S) <span class="keyword">return</span> ERROR;</span><br><span class="line">    Node *node = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    node-&gt;data = data;</span><br><span class="line">    node-&gt;next = S-&gt;top;</span><br><span class="line">    S-&gt;top = node;</span><br><span class="line">    S-&gt;size++;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">Pop</span><span class="params">(LinkStackP S,ElemType *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!S || !S-&gt;top) <span class="keyword">return</span> ERROR;</span><br><span class="line">    Node *node = S-&gt;top;</span><br><span class="line">    *e = node-&gt;data;</span><br><span class="line">    S-&gt;top = node-&gt;next;</span><br><span class="line">    S-&gt;size--;</span><br><span class="line">    <span class="built_in">free</span>(node);</span><br><span class="line">    node = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pop is %d\n&quot;</span>,*e);</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">StackLen</span><span class="params">(LinkStackP S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!S) <span class="keyword">return</span> ERROR;</span><br><span class="line">    <span class="keyword">return</span> S-&gt;size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetElem</span><span class="params">(LinkStackP S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S)</span><br><span class="line">        <span class="keyword">return</span> S-&gt;size;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isEmpty</span><span class="params">(LinkStackP S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!S) <span class="keyword">return</span> ERROR;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(S-&gt;size == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> e,len,topdata = <span class="number">0</span>;</span><br><span class="line">    LinkStackP S = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    InitStack(&amp;S);</span><br><span class="line">    Push(S,<span class="number">1</span>);</span><br><span class="line">    Push(S,<span class="number">2</span>);</span><br><span class="line">    <span class="comment">//ClearLinkStack(S);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//DesLinkStack(&amp;S);</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;empty? : %d\n&quot;</span>,isEmpty(S));</span><br><span class="line">    len = StackLen(S);</span><br><span class="line">    topdata = GetElem(S);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Stacklen is %d\n&quot;</span>,len);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Getelem is %d\n&quot;</span>,topdata);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    topdata = GetElem(S);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Getelem is %d\n&quot;</span>,topdata);</span><br><span class="line">    Pop(S,&amp;e);</span><br><span class="line">    Pop(S,&amp;e);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;empty? : %d\n&quot;</span>,isEmpty(S));</span><br><span class="line">    len = StackLen(S);</span><br><span class="line">     Pop(S,&amp;e);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;StackLen is %d\n&quot;</span>,len);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello world!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="在写的时候现在知道该怎么处理，进一步理解指针及指针的指针及其操作，在写LinkStack时，发现有的函数在不进行错误判定时操作时，有时会因为空指针及野指针的原因导致程序存在隐含错误，所以这次在写的过程中基本上每一个函数都加了判错判断。"><a href="#在写的时候现在知道该怎么处理，进一步理解指针及指针的指针及其操作，在写LinkStack时，发现有的函数在不进行错误判定时操作时，有时会因为空指针及野指针的原因导致程序存在隐含错误，所以这次在写的过程中基本上每一个函数都加了判错判断。" class="headerlink" title="在写的时候现在知道该怎么处理，进一步理解指针及指针的指针及其操作，在写LinkStack时，发现有的函数在不进行错误判定时操作时，有时会因为空指针及野指针的原因导致程序存在隐含错误，所以这次在写的过程中基本上每一个函数都加了判错判断。"></a>在写的时候现在知道该怎么处理，进一步理解指针及指针的指针及其操作，在写LinkStack时，发现有的函数在不进行错误判定时操作时，有时会因为空指针及野指针的原因导致程序存在隐含错误，所以这次在写的过程中基本上每一个函数都加了判错判断。</h2><p>codeblocks运行成功；</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/04/LinkStack/" data-id="ckt5iy25b0004ngjm4ha91hjx" data-title="LinkStack" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/04/LinkStack/" data-id="ckt5j1sh10003pkjm9jaceszx" data-title="LinkStack" class="article-share-link">Share</a>
       
       
       
@@ -220,7 +183,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/04/Stack/" data-id="ckt5iy25d0007ngjm2orzaykt" data-title="Stack" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/04/Stack/" data-id="ckt5j1sh20005pkjmg7pig9f2" data-title="Stack" class="article-share-link">Share</a>
       
       
       
@@ -263,7 +226,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/02/CriLinkList/" data-id="ckt5iy2540000ngjm1ufj12sp" data-title="CriLinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/02/CriLinkList/" data-id="ckt5j1sgv0000pkjm2o462ut3" data-title="CriLinkList" class="article-share-link">Share</a>
       
       
       
@@ -308,7 +271,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/02/DouLinkList/" data-id="ckt5iy2590002ngjmgoa22cid" data-title="DouLinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/02/DouLinkList/" data-id="ckt5j1sgz0001pkjmc2kf1wv8" data-title="DouLinkList" class="article-share-link">Share</a>
       
       
       
@@ -361,7 +324,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="ckt5iy2580001ngjmd4uugpo5" data-title="LinkList" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/27/LinkList/" data-id="ckt5j1sh00002pkjm7qfz4w78" data-title="LinkList" class="article-share-link">Share</a>
       
       
       
@@ -404,7 +367,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" data-id="ckt5iy25e0008ngjm0ryrgb2s" data-title="严蔚敏SqList.md" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/26/%E4%B8%A5%E8%94%9A%E6%95%8FSqList-md/" data-id="ckt5j1sh40008pkjm676b9pcj" data-title="严蔚敏SqList.md" class="article-share-link">Share</a>
       
       
       
@@ -446,7 +409,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/17/wodeboke-1/" data-id="ckt5iy25b0005ngjm28pghy0u" data-title="wodeboke" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/17/wodeboke-1/" data-id="ckt5j1sh30006pkjmgos53q9p" data-title="wodeboke" class="article-share-link">Share</a>
       
       
       
@@ -497,7 +460,7 @@ codeblocks运行成功；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/17/hello-world/" data-id="ckt5iy25c0006ngjmetl38nce" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/17/hello-world/" data-id="ckt5j1sh30007pkjm3vl9h7vs" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
