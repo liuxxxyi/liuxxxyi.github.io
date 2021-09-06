@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>CrSqueue | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="#严蔚敏循环链表12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394#include &lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CrSqueue">
+<meta property="og:url" content="http://example.com/2021/09/06/CrSqueue/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#严蔚敏循环链表12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394#include &lt;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-06T03:40:59.000Z">
+<meta property="article:modified_time" content="2021-09-06T03:47:16.529Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-CrSqueue" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/06/CrSqueue/" class="article-date">
+  <time class="dt-published" datetime="2021-09-06T03:40:59.000Z" itemprop="datePublished">2021-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      CrSqueue
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="严蔚敏循环链表"><a href="#严蔚敏循环链表" class="headerlink" title="#严蔚敏循环链表"></a>#严蔚敏循环链表</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OVERFLOW -1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 10</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXADD 10</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">循环队列，将队列数组的一个元素不使用方便判断，即当rear + 1 = front 时，判断队列对否满，应为用模运算是循环的，所以，但凡有需要求</span></span><br><span class="line"><span class="comment">rear - front 的都需要加模（rear - front + maxsize）% maxsize 之后操作；</span></span><br><span class="line"><span class="comment">队列满时 条件为 当rear + 1 = front； 空时为 rear = front;</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElemType,Status;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElemType *base;</span><br><span class="line">    <span class="keyword">int</span> front;</span><br><span class="line">    <span class="keyword">int</span> rear;</span><br><span class="line">&#125;Squeue;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">InitQueue</span><span class="params">(Squeue *Q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Q-&gt;base = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ElemType)*MAXSIZE);</span><br><span class="line">    <span class="keyword">if</span>(!Q)</span><br><span class="line">        <span class="built_in">exit</span>(OVERFLOW);</span><br><span class="line">    Q-&gt;front = Q-&gt;rear = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QueueLen</span><span class="params">(Squeue Q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span>(Q.rear - Q.front + MAXSIZE) % MAXSIZE;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Squeue Q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q.rear == Q.front)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Status <span class="title">EnQueue</span><span class="params">(Squeue *Q,ElemType data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>((Q-&gt;rear+<span class="number">1</span>)%MAXSIZE == Q-&gt;front)  <span class="comment">//栈满，将一个空间不装元素，当rear + 1 == front 是栈满；</span></span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    Q-&gt;base[Q-&gt;rear] = data;</span><br><span class="line">    Q-&gt;rear = (Q-&gt;rear + <span class="number">1</span>) % MAXSIZE;  <span class="comment">//当加一之后模maxsize，即可使队列不满时，一直循环装，若加一不摸，当rear = maxsize时会造成内存溢出</span></span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DeQueue</span><span class="params">(Squeue *Q,ElemType *data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q-&gt;rear == Q-&gt;front)   <span class="comment">//判对空</span></span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    *data = (Q-&gt;base)[Q-&gt;front];</span><br><span class="line">    Q-&gt;front = (Q-&gt;front + <span class="number">1</span>) % MAXSIZE;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%-6d %-6d 出队元素是 ：%d\n&quot;</span>,Q-&gt;front,Q-&gt;rear,*data);</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Squeue Q;</span><br><span class="line">    ElemType e;</span><br><span class="line">    InitQueue(&amp;Q);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;front rear\n&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">        EnQueue(&amp;Q,i);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len is : %d\n&quot;</span>,QueueLen(Q));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;empty : %d\n&quot;</span>,IsEmpty(Q));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">        DeQueue(&amp;Q,&amp;e);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len is : %d\n&quot;</span>,QueueLen(Q));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;empty : %d\n&quot;</span>,IsEmpty(Q));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">        EnQueue(&amp;Q,i);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len is : %d\n&quot;</span>,QueueLen(Q));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;empty : %d\n&quot;</span>,IsEmpty(Q));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">        DeQueue(&amp;Q,&amp;e);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len is : %d\n&quot;</span>,QueueLen(Q));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;empty : %d\n&quot;</span>,IsEmpty(Q));</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">        EnQueue(&amp;Q,i);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len is : %d\n&quot;</span>,QueueLen(Q));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;empty : %d\n&quot;</span>,IsEmpty(Q));</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">        DeQueue(&amp;Q,&amp;e);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len is : %d\n&quot;</span>,QueueLen(Q));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;empty : %d\n&quot;</span>,IsEmpty(Q));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello world!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="循环链表，在顺序表中，由于，出队之后，会有一些空的空间，运用模运算，逻辑上可构建循环顺序队列，可将出队之后的空间利用。"><a href="#循环链表，在顺序表中，由于，出队之后，会有一些空的空间，运用模运算，逻辑上可构建循环顺序队列，可将出队之后的空间利用。" class="headerlink" title="循环链表，在顺序表中，由于，出队之后，会有一些空的空间，运用模运算，逻辑上可构建循环顺序队列，可将出队之后的空间利用。"></a>循环链表，在顺序表中，由于，出队之后，会有一些空的空间，运用模运算，逻辑上可构建循环顺序队列，可将出队之后的空间利用。</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/06/CrSqueue/" data-id="ckt83s6x00001hsjm7wfo1by0" data-title="CrSqueue" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/09/06/LinkQueue/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">LinkQueue</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/09/06/CrSqueue/">CrSqueue</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/06/LinkQueue/">LinkQueue</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/04/Squeue/">Squeue</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/04/LinkStack/">LinkStack</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/04/Stack/">Stack</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
